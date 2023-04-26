@@ -5,7 +5,8 @@ import (
 	"runtime"
 	"sort"
 	"time"
-	"github.com/satori/go.uuid"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 // Cron keeps track of any number of entries, invoking the associated func as
@@ -251,7 +252,6 @@ func (c *Cron) run() {
 				c.snapshot <- c.entrySnapshot()
 				continue
 
-
 			case <-c.stop:
 				timer.Stop()
 				return
@@ -297,4 +297,3 @@ func mapToArray(entries map[string]*Entry) []*Entry {
 	}
 	return es
 }
-
